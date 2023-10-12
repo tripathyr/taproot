@@ -1,5 +1,11 @@
 # Getting taproot address
+- var decoded_wif = coinjs.wif2privkey('KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH')
+  
+{privkey: '0101010101010101010101010101010101010101010101010101010101010101', compressed: true}
+
+- var privKey_arrayform = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
 - Get the pubS from decoded_wif.
+- var pubS = secp256k1_schnorr.getPublicKey(privKey_arrayform);
 - Use btc.p2tr(pubS)
 - btc = taproot so btc.p2tr(pubS) is same as taproot.p2tr(pubS)
 - var tr = btc.p2tr(pubS);
