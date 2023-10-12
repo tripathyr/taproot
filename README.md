@@ -1,11 +1,11 @@
 # WIF operations
 
-- WE CAN CONVERT TO WIF LIKE THIS
+- WE CAN CONVERT hex encoding of privKey_arrayform TO WIF LIKE THIS
 - coinjs.privkey2wif("20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576")
 
 'KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm'
 
-- CONVERTING BACK FROM WIF TO PRIVATE KEY
+- CONVERTING BACK FROM WIF TO decoded_wif
 - var decoded_wif = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
 {privkey: '20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576', compressed: true}
 
