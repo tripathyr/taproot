@@ -17,7 +17,7 @@
 - var decoded_wif = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
 {privkey: '20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576', compressed: true}
 
-# taproot transaction
+# taproot transaction Key Path Spend
 
 //  FINAL OPTIMIZATION
  
@@ -34,7 +34,7 @@ var opts = {};
 var tx = new btc.Transaction(opts);
 
 
-var inp =    {txid: 'c061c23190ed3370ad5206769651eaf6fac6d87d85b5db34e30a74e0c4a6da3e',
+var inp_1 =    {txid: 'c061c23190ed3370ad5206769651eaf6fac6d87d85b5db34e30a74e0c4a6da3e',
    index: 0,
    script: tr.script,
     amount : 550n
@@ -42,26 +42,26 @@ var inp =    {txid: 'c061c23190ed3370ad5206769651eaf6fac6d87d85b5db34e30a74e0c4a
 
 
 tx.addInput({
-      ...inp,
+      ...inp_1,
       ...tr,
       witnessUtxo: {
-        script: inp.script,
-        amount: inp.amount
+        script: inp_1.script,
+        amount: inp_1.amount
       },
     });
 
-var inp_1 =    {txid: 'a034026190ed2280ad41069546513af6fac6d87d85b5db34e30a74e0c4a78678',
+var inp_2 =    {txid: 'a034026190ed2280ad41069546513af6fac6d87d85b5db34e30a74e0c4a78678',
    index: 1,
    script: tr.script,
     amount : 375n
  }
 
 tx.addInput({
-      ...inp_1,
+      ...inp_2,
       ...tr,
       witnessUtxo: {
-        script: inp_1.script,
-        amount: inp_1.amount
+        script: inp_2.script,
+        amount: inp_2.amount
       },
     }); 
 
