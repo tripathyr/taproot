@@ -1,20 +1,22 @@
 # WIF operations
 
 - WE CAN CONVERT TO WIF LIKE THIS
-coinjs.privkey2wif("20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576")
+- coinjs.privkey2wif("20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576")
 
 'KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm'
 
 - CONVERTING BACK FROM WIF TO PRIVATE KEY
-var privKey = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
+- var decoded_wif = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
 {privkey: '20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576', compressed: true}
 
 # taproot transaction
 
 //  FINAL OPTIMIZATION
-var privKey = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
+ 
+// var privKey_arrayform = hex.decode(decoded_wif);
+var privKey_arrayform = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
 
-var pubS = secp256k1_schnorr.getPublicKey(privKey);
+var pubS = secp256k1_schnorr.getPublicKey(privKey_arrayform);
 
 var tr = btc.p2tr(pubS);
 
@@ -41,7 +43,7 @@ tx.addInput({
 
 tx.addOutputAddress('bc1q34yl3qzqv4qlxf0gj9tguv23tzh99syawhmekm', 450n);
 
-tx.sign(privKey, undefined, new Uint8Array(32));
+tx.sign(privKey_arrayform, undefined, new Uint8Array(32));
 
 tx.finalize()
 
