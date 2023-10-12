@@ -9,13 +9,18 @@
 # WIF operations
 
 - WE CAN CONVERT hex encoding of privKey_arrayform TO WIF LIKE THIS
-- coinjs.privkey2wif("20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576")
 
-'KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm'
+- coinjs.privkey2wif("0101010101010101010101010101010101010101010101010101010101010101")
+
+'KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH'
+
+
 
 - CONVERTING BACK FROM WIF TO decoded_wif
-- var decoded_wif = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
-{privkey: '20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576', compressed: true}
+
+- var decoded_wif = coinjs.wif2privkey('KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH')
+  
+{privkey: '0101010101010101010101010101010101010101010101010101010101010101', compressed: true}
 
 # taproot transaction Key Path Spend
 
