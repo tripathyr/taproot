@@ -1,3 +1,11 @@
+# GEtting taproot address
+- Get the pubS from decoded_wif.
+- Use btc.p2tr(pubS)
+- btc = taproot so btc.p2tr(pubS) is same as taproot.p2tr(pubS)
+- var tr = btc.p2tr(pubS);
+- Then you get address as tr.address
+- {type: 'tr', script: Uint8Array(34), address: 'bc1p33wm0auhr9kkahzd6l0kqj85af4cswn276hsxg6zpz85xe2r0y8syx4e5t', tweakedPubkey: Uint8Array(32), tapInternalKey: Uint8Array(32)}
+
 # WIF operations
 
 - WE CAN CONVERT hex encoding of privKey_arrayform TO WIF LIKE THIS
