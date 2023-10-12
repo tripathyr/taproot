@@ -1,4 +1,4 @@
-# GEtting taproot address
+# Getting taproot address
 - Get the pubS from decoded_wif.
 - Use btc.p2tr(pubS)
 - btc = taproot so btc.p2tr(pubS) is same as taproot.p2tr(pubS)
