@@ -22,6 +22,7 @@
 //  FINAL OPTIMIZATION
  
 // var privKey_arrayform = hex.decode(decoded_wif);
+
 var privKey_arrayform = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
 
 var pubS = secp256k1_schnorr.getPublicKey(privKey_arrayform);
