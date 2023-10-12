@@ -1,3 +1,14 @@
+# WIF operations
+
+- WE CAN CONVERT TO WIF LIKE THIS
+coinjs.privkey2wif("20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576")
+
+'KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm'
+
+- CONVERTING BACK FROM WIF TO PRIVATE KEY
+var privKey = coinjs.wif2privkey('KxKUzsMRQGx2AJVdjF16CNERwGyTGNcbrxGeqbbszqsQeSf5mBrm')
+{privkey: '20ce9c10a3187acbbf63533f1fa24c174747c57d64e6b40aaf741e9b264aa576', compressed: true}
+
 # taproot transaction
 
 //  FINAL OPTIMIZATION
