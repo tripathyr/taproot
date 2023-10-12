@@ -77,5 +77,5 @@ hex.encode(tr.script)
 - '51208c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f'
 
 
-hex.encode(tr.tweakedPubkey)
+hex.encode(tr.tweakedPubkey) // This is actual key that is used in verification process
 - '8c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f'
