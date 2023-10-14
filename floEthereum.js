@@ -12,7 +12,7 @@ const ethAddressFromPrivateKey = floEthereum.ethAddressFromPrivateKey = function
     t2 = t1.x.toString(16) + t1.y.toString(16);
     t3 = keccak.keccak_256(Crypto.util.hexToBytes(t2));
     t4 = keccak.extractLast20Bytes(t3);
-    return t4;
+    return "0x" + t4;
 }
 
 const ethAddressFromCompressedPublicKey = floEthereum.ethAddressFromCompressedPublicKey = function(compressedPublicKey){
@@ -21,7 +21,7 @@ const ethAddressFromCompressedPublicKey = floEthereum.ethAddressFromCompressedPu
     t2 = t1.slice(2);
     t3 = keccak.keccak_256(Crypto.util.hexToBytes(t2));
     t4 = keccak.extractLast20Bytes(t3);
-    return t4; 
+    return "0x" + t4; 
 }
 
 const ethPrivateKeyFromUntweakedPrivateKey = floEthereum.ethPrivateKeyFromUntweakedPrivateKey = function(untweakedPrivateKey) {
@@ -34,7 +34,7 @@ const ethAddressFromUntweakedPrivateKey = floEthereum.ethAddressFromUntweakedPri
     var t1,t2;
     t1 = hex.encode(taproot.taprootTweakPrivKey(hex.decode(untweakedPrivateKey)));
     t2 = ethAddressFromPrivateKey(t1);
-    return t2;
+    return "0x" + t2;
 }
 
 const ethAddressFromTaprootAddress = floEthereum.ethAddressFromTaprootAddress = function(taprootAddress) {
@@ -43,7 +43,7 @@ const ethAddressFromTaprootAddress = floEthereum.ethAddressFromTaprootAddress = 
     t2 = t1.outstring.slice(4);
     t3 = "02" + t2;
     t4 = ethAddressFromCompressedPublicKey(t3);
-    return t4;
+    return "0x" + t4;
 }
 
 
