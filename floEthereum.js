@@ -24,6 +24,15 @@ const ethAddressFromCompressedPublicKey = floEthereum.ethAddressFromCompressedPu
     return "0x" + t4; 
 }
 
+const ethAddressFromUncompressedPublicKey = floEthereum.ethAddressFromUncompressedPublicKey = function(unCompressedPublicKey){
+    var t1,t2,t3,t4;
+    t1 = unCompressedPublicKey;
+    t2 = t1.slice(2);
+    t3 = keccak.keccak_256(Crypto.util.hexToBytes(t2));
+    t4 = keccak.extractLast20Bytes(t3);
+    return "0x" + t4; 
+}    
+
 const ethPrivateKeyFromUntweakedPrivateKey = floEthereum.ethPrivateKeyFromUntweakedPrivateKey = function(untweakedPrivateKey) {
     var t1;
     t1 = hex.encode(taproot.taprootTweakPrivKey(hex.decode(untweakedPrivateKey)));
