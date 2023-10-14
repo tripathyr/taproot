@@ -34,7 +34,7 @@ const ethAddressFromUntweakedPrivateKey = floEthereum.ethAddressFromUntweakedPri
     var t1,t2;
     t1 = hex.encode(taproot.taprootTweakPrivKey(hex.decode(untweakedPrivateKey)));
     t2 = ethAddressFromPrivateKey(t1);
-    return "0x" + t2;
+    return t2;
 }
 
 const ethAddressFromTaprootAddress = floEthereum.ethAddressFromTaprootAddress = function(taprootAddress) {
@@ -43,7 +43,7 @@ const ethAddressFromTaprootAddress = floEthereum.ethAddressFromTaprootAddress = 
     t2 = t1.outstring.slice(4);
     t3 = "02" + t2;
     t4 = ethAddressFromCompressedPublicKey(t3);
-    return "0x" + t4;
+    return t4;
 }
 
 
