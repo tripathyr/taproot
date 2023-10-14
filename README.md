@@ -106,4 +106,4 @@ hex.encode(tr.script)
 
 
 hex.encode(tr.tweakedPubkey) // This is actual key that is used in verification process
-- '8c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f'
+- '8c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f' (if you add 5120 as prefix to this, you get tr.script)
