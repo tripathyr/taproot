@@ -106,4 +106,31 @@ hex.encode(tr.script)
 
 
 hex.encode(tr.tweakedPubkey) // This is actual key that is used in verification process (if you add 5120 as prefix to this, you get tr.script)
-- '8c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f' 
+- '8c5db7f797196d6edc4dd7df6048f4ea6b883a6af6af032342088f436543790f'
+
+# Ethereum Functions
+
+## To obtain privkey from wif to be used further in Ethereum functions 
+- var decoded_wif = coinjs.wif2privkey('KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH');
+- {privkey: '0101010101010101010101010101010101010101010101010101010101010101', compressed: true}
+
+## This is the private key used as start point to get both the taproot address and Ethereum address
+- floEthereum.ethAddressFromUntweakedPrivateKey("0101010101010101010101010101010101010101010101010101010101010101");
+
+'0x78f9255fcb7372cc46055893c406dcbd5589d28c'
+
+## Extracts the public key from a taproot address, uncompresses it, and then generates Ethereum address
+- floEthereum.ethAddressFromTaprootAddress("bc1p33wm0auhr9kkahzd6l0kqj85af4cswn276hsxg6zpz85xe2r0y8syx4e5t");
+
+'0x78f9255fcb7372cc46055893c406dcbd5589d28c'
+
+## As performed by Metamask. We do not use this in taproot as we need to tweak the base private key
+- floEthereum.ethAddressFromPrivateKey("f8f8a2f43c8376ccb0871305060d7b27b0554d2cc72bccf41b2705608452f315"); 
+
+'0x001d3f1ef827552ae1114027bd3ecf1f086ba0f9'
+
+## Generates Ethereum Private key from Untweaked Taproot Private Key. This is the one to enter into Metamask when you import the private key
+- floEthereum.ethPrivateKeyFromUntweakedPrivateKey("0101010101010101010101010101010101010101010101010101010101010101");
+
+'812e8e3dbb30ae7b494ef0ddce38ac25d73334b1099708cead5f0d939f274d7d'
+
