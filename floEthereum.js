@@ -4,15 +4,18 @@
     'use strict';
     const floEthereum = EXPORTS;
 
-//This needs y point to be even always. If y point is odd, it will be converted to even
-const ethAddressFromPrivateKey = floEthereum.ethAddressFromPrivateKey = function(privateKey){
+const ethAddressFromPrivateKey = floEthereum.ethAddressFromPrivateKey = function(privateKey, onlyEvenY = false){
     var t1,t1_x,t1_y,t1_x_BigInt,t1_y_BigInt,t2,t3,t4;
     var groupOrder = BigInt("0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F");
 
     t1 = bitjs.newPubkey(privateKey);
     t1_x = t1.slice(2, 66); t1_y = t1.slice(-64);
+    
+    if (onlyEvenY) {
     t1_x_BigInt = BigInt("0x"+t1_x);t1_y_BigInt = BigInt("0x"+t1_y); 
     if (t1_y_BigInt % 2n !== 0n) { t1_y_BigInt = (groupOrder-t1_y_BigInt)%groupOrder; t1_y=t1_y_BigInt.toString(16)};
+    }
+    
     t2 = t1_x.toString(16) + t1_y.toString(16);
     t3 = keccak.keccak_256(Crypto.util.hexToBytes(t2));
     t4 = keccak.extractLast20Bytes(t3);
@@ -46,7 +49,7 @@ const ethPrivateKeyFromUntweakedPrivateKey = floEthereum.ethPrivateKeyFromUntwea
 const ethAddressFromUntweakedPrivateKey = floEthereum.ethAddressFromUntweakedPrivateKey = function(untweakedPrivateKey) {
     var t1,t2;
     t1 = hex.encode(taproot.taprootTweakPrivKey(hex.decode(untweakedPrivateKey)));
-    t2 = ethAddressFromPrivateKey(t1);
+    t2 = ethAddressFromPrivateKey(t1,true);
     return t2;
 }
 
