@@ -5412,7 +5412,7 @@ taproot.NETWORK = {
 taproot.PRECISION = 8;
 taproot.DEFAULT_VERSION = 2;
 taproot.DEFAULT_LOCKTIME = 0;
-taproot.DEFAULT_SEQUENCE = 4294967295;
+taproot.DEFAULT_SEQUENCE = 4294967293;
 var EMPTY32 = new Uint8Array(32);
 // Utils
 //ROHIT taproot.Decimal = 8;
